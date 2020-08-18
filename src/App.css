@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+label {
+  padding: 16px 0 16px 16px;
+  width: 262px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  margin: 16px 16px 0 0;
+  height: 22px;
+  width: 22px;
+  float: right;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.carousel-control-next,
+.carousel-control-prev {
+  filter: invert(100%);
+  /* align-items: flex-start; */
+}
+
+.horizontal-navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-navbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.is-active {
+  border-bottom: 1px solid black;
+}
+
+.restaurant-menu-item:hover {
+  border-color: #000000;
+  cursor: pointer;
+}
+
+@media (max-width: 575.98px) {
+  .margin-left {
+    margin: 0 0 0 0 !important;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .margin-tp {
+    margin: 24px 0 24px 0 !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .text-pr {
+    padding-right: 0px !important;
+  }
+
+  .restaurant-card-horizontal {
+    margin-right: 16px !important;
   }
 }
