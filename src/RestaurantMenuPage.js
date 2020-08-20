@@ -62,7 +62,7 @@ const RestaurantDetails = ({ restaurant }) => {
     const specialty = restaurant.restaurantSpecialty.split(",").join(bullet);
 
     return (
-        <Col sm={12} md={7} lg={5} xl={4} className="my-auto pl-5 py-3" style={{ backgroundColor: "#FFFFFF" }}>
+        <Col sm={12} md={7} lg={5} className="my-auto pl-5 py-3" style={{ backgroundColor: "#FFFFFF" }}>
             <h1>{restaurant.restaurantName}</h1>
             <Card.Text className="mb-1">${priceRange} {bullet} {specialty}</Card.Text>
             <Card.Text>

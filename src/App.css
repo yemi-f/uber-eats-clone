@@ -10,6 +10,15 @@ input {
   float: right;
 }
 
+.close span {
+  background-color: white;
+  color: black;
+  padding: 3px 8px;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+}
+
 .carousel-control-next,
 .carousel-control-prev {
   filter: invert(100%);
@@ -21,8 +30,10 @@ input {
 }
 
 .horizontal-navbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .is-active {
