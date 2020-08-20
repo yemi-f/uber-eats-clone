@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import ScrollspyNav from "react-scrollspy-nav";
 import { getPriceRange, getMenuUrl } from "./HelperFunctions"
+import MoreInfoModal from "./MoreInfoModal"
 
 const RestaurantMenuPage = ({ restaurant }) => {
-
-    // const restaurantSpecialty = ["Asian fusion", "Vietnamese", "Noodles", "Gourmet", "Wings",
-    //     "Fish and Chips", "Lebanese", "Middle Eastern", "Greek", "Desserts", "African", "Juice and Smoothies", "Allergy Friendly",
-    //     "Salads", "Thai", "Asian", "Vegan", "Breakfast and Brunch", "Sushi", "Japanese", "BBQ", "Mediterranean",
-    //     "Caribbean", "Sandwich", "Burgers", "Family Meals", "Mexican", "South American", "Fast Food", "Healthy",
-    //     "Bakery", "Cafe", "Donuts", "Pizza", "American", "Italian", "Family Meals", "Pasta", "Comfort Food", "Wings",
-    //     "Portuguese", "Seafood", "Deli", "Indian", "Thai", "Halal", "Chinese"
-    // ]
 
     const navItems = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6"]
     const headingIds = navItems.map(item => getMenuUrl(item))
@@ -59,19 +51,25 @@ const RestaurantMenuHeader = ({ restaurant }) => {
 
 const RestaurantDetails = ({ restaurant }) => {
     const bullet = "\u2022";
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    const handleModalOpen = () => {
+        setModalIsOpen(!modalIsOpen)
+    }
 
     const deliveryTimeStr = `${restaurant.deliveryTime}-${restaurant.deliveryTime + 10}`
     const priceRange = getPriceRange(restaurant.price)
     const specialty = restaurant.restaurantSpecialty.split(",").join(bullet);
 
     return (
-        <Col sm={12} md={6} lg={5} className="my-auto pl-5 py-3" style={{ backgroundColor: "#FFFFFF" }}>
+        <Col sm={12} md={7} lg={5} xl={4} className="my-auto pl-5 py-3" style={{ backgroundColor: "#FFFFFF" }}>
             <h1>{restaurant.restaurantName}</h1>
             <Card.Text className="mb-1">${priceRange} {bullet} {specialty}</Card.Text>
             <Card.Text>
                 {deliveryTimeStr} Min {bullet} {restaurant.rating}<span className="text-muted">(473)</span> {bullet} ${restaurant.deliveryFee.toFixed(2)} Delivery Fee
             </Card.Text>
-            <p className="mb-1">{restaurant.address} {bullet} <Link to="/menu">More info</Link></p>
+            <p className="mb-1" >{restaurant.address} {bullet} <strong style={{ color: "#05A357", cursor: "pointer" }} onClick={() => handleModalOpen()}>More info</strong></p>
+            <MoreInfoModal restaurant={restaurant} modalIsOpen={modalIsOpen} handleModalOpen={handleModalOpen} />
         </Col>
     )
 }

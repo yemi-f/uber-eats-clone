@@ -7,7 +7,6 @@ const AllRestaurants = ({ restaurants }) => {
     return (
         <ResponsiveCardDeck>
             {restaurants.map(restaurant => {
-                console.log(restaurant)
                 return <RestaurantCard restaurant={restaurant} />
             })}
         </ResponsiveCardDeck>

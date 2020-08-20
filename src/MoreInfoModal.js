@@ -1,26 +1,25 @@
 import React from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import ottawaMap from "./images/ottawaMap.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons'
 
-const MoreInfoModal = () => {
+const MoreInfoModal = ({ restaurant, handleModalOpen, modalIsOpen }) => {
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-      </Button>
-
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+            <Modal centered show={modalIsOpen} onHide={handleModalOpen}>
+                <Modal.Header style={{ height: "30vh", backgroundImage: `url(${ottawaMap})`, backgroundSize: "cover" }} closeButton className="border-0">
+                    <Modal.Title className="bg-white px-2 my-auto mx-auto rounded-lg font-weight-normal">
+                        {restaurant.restaurantName}
+                    </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-          </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-          </Button>
-                </Modal.Footer>
+                <Modal.Body className="my-2">
+                    <h1>
+                        Location and hours
+                    </h1>
+                    <h6 className="py-2"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> {restaurant.address}</h6>
+                    <h6><FontAwesomeIcon icon={faClock} className="mr-2" /> Hours of Operation</h6>
+                </Modal.Body>
             </Modal>
         </>
     )
