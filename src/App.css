@@ -19,13 +19,6 @@ input {
   border-radius: 50%;
 }
 
-.carousel-control-next,
-.carousel-control-prev {
-  filter: invert(100%);
-  /* align-items: flex-start; */
-}
-
-
 .horizontal-navbar::-webkit-scrollbar {
   display: none;
 }

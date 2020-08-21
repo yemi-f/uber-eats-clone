@@ -27,25 +27,39 @@ const RenderSliderRestaurantsCardDeck = ({ restaurants }) => {
         setWidth(window.innerWidth);
     };
 
-    var numOfvisibleSlides;
-    var step;
+    var numOfvisibleSlides, step, naturalSlideHeight;
 
-    if (width < 768) {
+    if (width < 321) {
         numOfvisibleSlides = 1;
         step = 1;
+        naturalSlideHeight = 480;
+    } else if (width < 576) {
+        numOfvisibleSlides = 1;
+        step = 1;
+        naturalSlideHeight = 360;
+    } else if (width < 768) {
+        numOfvisibleSlides = 1;
+        step = 1;
+        naturalSlideHeight = 300;
     } else if (width < 992) {
         numOfvisibleSlides = 2;
         step = 2;
+        naturalSlideHeight = 400;
+    } else if (width < 1200) {
+        numOfvisibleSlides = 3;
+        step = 3;
+        naturalSlideHeight = 480;
     } else {
         numOfvisibleSlides = 3;
         step = 3;
+        naturalSlideHeight = 400;
     }
 
-    return <SliderRestaurantsCardDeck restaurants={restaurants} numOfvisibleSlides={numOfvisibleSlides} step={step} />
+    return <SliderRestaurantsCardDeck restaurants={restaurants} numOfvisibleSlides={numOfvisibleSlides} step={step} naturalSlideHeight={naturalSlideHeight} />
 
 }
 
-const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step }) => {
+const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step, naturalSlideHeight }) => {
     const totalSlides = countNumOfFreeDeleiveryRestaurants(restaurants);
 
     return (
@@ -54,7 +68,7 @@ const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step }) =>
             totalSlides={totalSlides}
             step={step}
             naturalSlideWidth={400}
-            naturalSlideHeight={400}
+            naturalSlideHeight={naturalSlideHeight}
         >
             <div className="d-flex justify-content-end pr-3">
                 <ButtonBack className="border-0 bg-white pb-0"><FontAwesomeIcon icon={faArrowAltCircleLeft} size="2x" /></ButtonBack>
