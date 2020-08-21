@@ -37,9 +37,7 @@ const ZeroDollarDeliveryFee = ({ restaurants }) => {
                     </Button>
                     </Col>
                 </Row>
-
             </Container>
-
             <ThreeColCarousel restaurants={zeroDollarDeliveryFeeArray} />
 
         </>
