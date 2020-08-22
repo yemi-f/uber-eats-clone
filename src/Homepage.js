@@ -4,6 +4,7 @@ import FoodCategories from './FoodCategories';
 import NarrowBy from "./NarrowBy"
 import ZeroDollarDeliveryFee from './ZeroDollarDeliveryFee';
 import AllRestaurants from "./AllRestaurants";
+import YourFavourites from "./YourFavourites";
 
 const Homepage = ({ restaurants }) => {
     return (
@@ -12,6 +13,7 @@ const Homepage = ({ restaurants }) => {
             <FoodCategories />
             <NarrowBy />
             <ZeroDollarDeliveryFee restaurants={restaurants} />
+            <YourFavourites restaurants={restaurants} />
             <AllRestaurants restaurants={restaurants} />
         </div>
     )
