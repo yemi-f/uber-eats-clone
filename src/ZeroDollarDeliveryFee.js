@@ -3,15 +3,9 @@ import { Col, Row, Button } from "react-bootstrap";
 import zeroFee from "./images/zeroFee.svg"
 import ThreeColCarousel from "./ThreeColCarousel";
 import Countdown, { zeroPad } from 'react-countdown';
+import { pillBtnStyle } from "./Styles"
 
 const ZeroDollarDeliveryFee = ({ restaurants }) => {
-    const pillBtnStyle = {
-        backgroundColor: "#F0F0F0",
-        borderWidth: "0",
-        color: "#000000",
-        borderRadius: "16px",
-        padding: "8px 16px",
-    }
 
     const heading =
         <Row className="mt-5">

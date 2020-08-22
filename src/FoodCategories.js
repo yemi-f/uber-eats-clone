@@ -14,6 +14,7 @@ import caribbean from "./images/caribbean.png"
 import bakery from "./images/bakery.png"
 import american from "./images/american.png"
 import { Container } from "react-bootstrap";
+import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "./Styles"
 
 const FoodCategories = () => {
 
@@ -76,27 +77,12 @@ const FoodCategories = () => {
         }
     ]
 
-
-    const horizontalScrollMenuStyle = {
-        display: "flex",
-        overflowX: "auto",
-        flexWrap: "nowrap"
-    }
-
-    const menuItemStyle = {
-        color: "black",
-        textAlign: "center",
-        padding: "16px",
-        textDecoration: "none",
-        flex: "0 0 auto",
-    }
-
     return (
         <Container className="horizontal-navbar" style={horizontalScrollMenuStyle}>
             {
                 categories.map((item, index) => {
                     return (
-                        <a href="/" key={index} style={menuItemStyle}>
+                        <a href="/" key={index} style={horizontalScrollMenuItemStyle}>
                             <img height="60px" src={item.image} alt={item.title} />
                             <div>{item.title}</div>
                         </a>

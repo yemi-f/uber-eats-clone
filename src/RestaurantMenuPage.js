@@ -3,6 +3,7 @@ import { Card, Row, Col, Container, Nav } from "react-bootstrap";
 import ScrollspyNav from "react-scrollspy-nav";
 import { getPriceRange, getMenuUrl } from "./HelperFunctions"
 import MoreInfoModal from "./MoreInfoModal"
+import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "./Styles"
 
 const RestaurantMenuPage = ({ restaurant }) => {
 
@@ -113,19 +114,6 @@ const RestaurantMenuCard = ({ itemName, price, image }) => {
 }
 
 const ScrollspyNavbar = ({ navItems, headingIds }) => {
-    const horizontalScrollMenuStyle = {
-        display: "flex",
-        overflowX: "auto",
-        flexWrap: "nowrap"
-    }
-
-    const menuItemStyle = {
-        color: "black",
-        textAlign: "center",
-        padding: "16px",
-        textDecoration: "none",
-        flex: "0 0 auto",
-    }
 
     return (
         <div className="border-bottom pl-0 sticky-top bg-white horizontal-navbar">
@@ -137,7 +125,7 @@ const ScrollspyNavbar = ({ navItems, headingIds }) => {
             >
                 <Nav style={horizontalScrollMenuStyle}>
                     {headingIds.map((id, index) => {
-                        return <Nav.Link className="text-dark" href={`#${id}`} style={menuItemStyle}>{navItems[index]}</Nav.Link>
+                        return <Nav.Link className="text-dark" href={`#${id}`} style={horizontalScrollMenuItemStyle}>{navItems[index]}</Nav.Link>
                     })}
                 </Nav>
             </ScrollspyNav>

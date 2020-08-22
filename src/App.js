@@ -40,7 +40,7 @@ function App() {
   //   return <p>loading...</p>
   // }
 
-  console.log(restaurants.length)
+  // console.log(restaurants.length)
   return (
     <Router>
       <div className="App">

@@ -3,52 +3,9 @@ import { Button, Container, ButtonGroup, Form } from "react-bootstrap";
 import PillDropdownBtn from "./PillDropdownBtn";
 
 const NarrowBy = () => {
-
-    // const horizontalScrollMenuStyle = {
-    //     display: "flex",
-    //     // overflowY: "visible",
-    //     overflowX: "auto",
-    //     flexWrap: "nowrap",
-    // }
-
-    // const horizontalScrollMenuStyle = {
-    //     display: "flex",
-    //     overflowX: "auto",
-    //     flexWrap: "nowrap"
-    // }
-
-    // const menuItemStyle = {
-    //     color: "black",
-    //     textAlign: "center",
-    //     padding: "16px",
-    //     textDecoration: "none",
-    //     flex: "0 0 auto",
-    // }
-
-
     return (
         <Container >
             <div>
-                {/* <Navbar bg="white" variant="light" >
-
-                    <Nav className="mr-auto" style={horizontalScrollMenuStyle}>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <NavDropdown title="Deliver Now" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1" style={menuItemStyle}>Deliver Now</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4" style={menuItemStyle}>Schedule for later</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4" style={menuItemStyle}>Schedule for later</NavDropdown.Item>
-
-                        </NavDropdown>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
-
-                    </Nav>
-                </Navbar> */}
                 <Sort />
                 <PriceRange />
                 <MaxDeliveryFee />

@@ -31,7 +31,7 @@ const AppNavbar = () => {
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
-        </Navbar >
+        </Navbar>
 
     )
 }
