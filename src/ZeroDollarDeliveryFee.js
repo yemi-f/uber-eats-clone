@@ -1,11 +1,11 @@
 import React from "react";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import zeroFee from "./images/zeroFee.svg"
 import ThreeColCarousel from "./ThreeColCarousel";
 import Countdown, { zeroPad } from 'react-countdown';
 
 const ZeroDollarDeliveryFee = ({ restaurants }) => {
-    const btnStyle = {
+    const pillBtnStyle = {
         backgroundColor: "#F0F0F0",
         borderWidth: "0",
         color: "#000000",
@@ -13,6 +13,20 @@ const ZeroDollarDeliveryFee = ({ restaurants }) => {
         padding: "8px 16px",
     }
 
+    const heading =
+        <Row className="mt-5">
+            <Col xs={2}>
+                <img src={zeroFee} alt="$0 delivery fee" />
+            </Col>
+            <Col>
+                <h1>$0 Delivery Fee</h1>
+                <p className="text-muted">Share a delivery partner with a nearby order</p>
+            </Col>
+        </Row>;
+
+    const timeRemaining = <Button style={pillBtnStyle}>
+        New options in <Countdown date={Date.now() + 500000} renderer={renderer} />
+    </Button>
     var zeroDollarDeliveryFeeArray = [];
 
     restaurants.forEach(restaurant => {
@@ -22,26 +36,7 @@ const ZeroDollarDeliveryFee = ({ restaurants }) => {
     })
 
     return (
-        <>
-            <Container>
-                <Row>
-                    <Col xs={3} sm={1} className="my-auto">
-                        <img src={zeroFee} alt="$0 delivery fee" />
-                    </Col>
-                    <Col xs={9} sm={5}>
-                        <h1>$0 Delivery Fee</h1>
-                        <p className="text-muted">Share a delivery partner with a nearby order</p>
-                    </Col>
-                    <Col xs={12} sm={6} className="my-auto">
-                        <Button style={btnStyle}>
-                            New options in <Countdown date={Date.now() + 500000} renderer={renderer} />
-                        </Button>
-                    </Col>
-                </Row>
-            </Container>
-            <ThreeColCarousel restaurants={zeroDollarDeliveryFeeArray} />
-
-        </>
+        <ThreeColCarousel restaurants={zeroDollarDeliveryFeeArray} heading={heading} timeRemaining={timeRemaining} />
     )
 }
 
