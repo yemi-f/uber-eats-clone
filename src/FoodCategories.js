@@ -13,6 +13,7 @@ import comfortfood from "./images/comfortfood.png"
 import caribbean from "./images/caribbean.png"
 import bakery from "./images/bakery.png"
 import american from "./images/american.png"
+import { Container } from "react-bootstrap";
 
 const FoodCategories = () => {
 
@@ -91,8 +92,7 @@ const FoodCategories = () => {
     }
 
     return (
-        <div className="horizontal-navbar" style={horizontalScrollMenuStyle}>
-
+        <Container className="horizontal-navbar" style={horizontalScrollMenuStyle}>
             {
                 categories.map((item, index) => {
                     return (
@@ -103,7 +103,7 @@ const FoodCategories = () => {
                     )
                 })
             }
-        </div>
+        </Container>
     )
 }
 
