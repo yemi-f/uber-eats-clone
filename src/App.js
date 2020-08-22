@@ -12,6 +12,7 @@ import Homepage from './Homepage';
 import axios from "axios";
 import ubereats from "./dataSource/ubereats.json"
 import { getMenuUrl } from "./HelperFunctions"
+import AppFooter from './AppFooter';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
             )
           })}
         </Switch>
+        <AppFooter />
       </div>
     </Router>
   );
