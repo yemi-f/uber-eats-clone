@@ -5,10 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
 const AppFooter = () => {
-    const linkStyle = {
-        color: "#FFFFFF",
-    }
-
     return (
         <div style={{ minHeight: "50vh", backgroundColor: "#000000", color: "#FFFFFF" }}>
             <Container >
@@ -22,18 +18,18 @@ const AppFooter = () => {
                     </Col>
                     <Col xs={12} md={3}>
                         <VerticalLinkGroup boldedText="About Uber Eats" arr={["Read or blog", "Buy gift cards", "Create a business account",
-                            "Add your restaurant", "Sign up to deliver"]} linkStyle={linkStyle} />
+                            "Add your restaurant", "Sign up to deliver"]} />
                     </Col>
                     <Col xs={12} md={3}>
                         <VerticalLinkGroup boldedText="Get Help" arr={["Read FAQs", "View all cities", "View all countries",
-                            "Restaurants near me", "English"]} linkStyle={linkStyle} />
+                            "Restaurants near me", "English"]} />
                     </Col>
                 </Row>
                 <Row className="border-top py-4">
                     <Col>
-                        <a><FontAwesomeIcon icon={faFacebookSquare} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
-                        <a><FontAwesomeIcon icon={faTwitter} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
-                        <a><FontAwesomeIcon icon={faInstagram} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
+                        <a href="https://www.facebook.com/ubereats" style={{ color: "#FFFFFF" }}><FontAwesomeIcon icon={faFacebookSquare} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
+                        <a href="https://www.twitter.com/ubereats" style={{ color: "#FFFFFF" }}><FontAwesomeIcon icon={faTwitter} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
+                        <a href="https://www.instagram.com/ubereats" style={{ color: "#FFFFFF" }}><FontAwesomeIcon icon={faInstagram} style={{ fontSize: "20px", margin: "8px 24px 8px 0" }} /></a>
                     </Col>
                     <div className="m-2 d-flex justify-content-end">
                         <a style={{ color: "#FFFFFF", marginLeft: "32px" }} href="#privacy-policy">Privacy Policy</a>
@@ -48,11 +44,11 @@ const AppFooter = () => {
     )
 }
 
-const VerticalLinkGroup = ({ boldedText, arr, linkStyle }) => {
+const VerticalLinkGroup = ({ boldedText, arr }) => {
 
     return (
         <>
-            <p><strong><a href="#to-link" style={linkStyle}>{boldedText}</a></strong></p>
+            <p><strong><a href="#to-link" style={{ color: "#FFFFFF" }}>{boldedText}</a></strong></p>
             {arr.map(item => {
                 return <p><a href="#to-link" style={{ color: "#FFFFFF" }}>{item}</a></p>
             })}
