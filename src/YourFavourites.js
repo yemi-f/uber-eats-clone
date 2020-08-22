@@ -1,5 +1,4 @@
 import React from "react";
-import { Col, Row, Button } from "react-bootstrap";
 import ThreeColCarousel from "./ThreeColCarousel";
 
 const YourFavourites = ({ restaurants }) => {
