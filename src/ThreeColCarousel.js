@@ -60,7 +60,7 @@ const RenderSliderRestaurantsCardDeck = ({ restaurants }) => {
 }
 
 const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step, naturalSlideHeight }) => {
-    const totalSlides = countNumOfFreeDeleiveryRestaurants(restaurants);
+    const totalSlides = countNumOfFreeDeliveryRestaurants(restaurants);
 
     return (
         <CarouselProvider
@@ -87,7 +87,7 @@ const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step, natu
     )
 }
 
-const countNumOfFreeDeleiveryRestaurants = (arr) => {
+const countNumOfFreeDeliveryRestaurants = (arr) => {
     var count = 0;
     arr.forEach(location => {
         if (location.freeDelivery) {
