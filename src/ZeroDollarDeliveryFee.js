@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import zeroFee from "./images/zeroFee.svg"
 import ThreeColCarousel from "./ThreeColCarousel";
+import Countdown, { zeroPad } from 'react-countdown';
 
 const ZeroDollarDeliveryFee = ({ restaurants }) => {
     const btnStyle = {
@@ -33,8 +34,8 @@ const ZeroDollarDeliveryFee = ({ restaurants }) => {
                     </Col>
                     <Col xs={12} sm={6} className="my-auto">
                         <Button style={btnStyle}>
-                            New options in 1:05
-                    </Button>
+                            New options in <Countdown date={Date.now() + 500000} renderer={renderer} />
+                        </Button>
                     </Col>
                 </Row>
             </Container>
@@ -42,6 +43,10 @@ const ZeroDollarDeliveryFee = ({ restaurants }) => {
 
         </>
     )
+}
+
+const renderer = ({ minutes, seconds }) => {
+    return <span>{minutes}:{zeroPad(seconds)}</span>;
 }
 
 export default ZeroDollarDeliveryFee;
