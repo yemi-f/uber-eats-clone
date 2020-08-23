@@ -4,7 +4,7 @@ import ScrollspyNav from "react-scrollspy-nav";
 import { getPriceRange, getMenuUrl } from "./HelperFunctions"
 import MoreInfoModal from "./MoreInfoModal"
 import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "./Styles"
-
+import RestaurantMenuItemModal from "./RestaurantMenuItemModal";
 const RestaurantMenuPage = ({ restaurant }) => {
 
     const navItems = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6"]
@@ -76,12 +76,15 @@ const RestaurantDetails = ({ restaurant }) => {
 }
 
 const RestaurantMenuCardDeck = ({ restaurant, category }) => {
+
     return (
         <Row className="row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3">
             {(restaurant.meal).map(item => {
                 if (item.category === category) {
                     return (
-                        <RestaurantMenuCard itemName={item.name} price={item.price} image={item.image} />
+                        <>
+                            <RestaurantMenuCard itemName={item.name} price={item.price} image={item.image} />
+                        </>
                     )
                 }
             })}
@@ -90,9 +93,14 @@ const RestaurantMenuCardDeck = ({ restaurant, category }) => {
 }
 
 const RestaurantMenuCard = ({ itemName, price, image }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    const handleModalOpen = () => {
+        setModalIsOpen(!modalIsOpen)
+    }
     return (
         <Col className="mt-4">
-            <Card className="restaurant-menu-item" style={{ borderWidth: "0.5px" }} >
+            <Card className="restaurant-menu-item" style={{ borderWidth: "0.5px" }} onClick={() => handleModalOpen()} >
                 <Row >
                     <Col xs={7} >
                         <Card.Body>
@@ -109,6 +117,7 @@ const RestaurantMenuCard = ({ itemName, price, image }) => {
                     </Col>
                 </Row>
             </Card>
+            <RestaurantMenuItemModal itemName={itemName} price={price} image={image} handleModalOpen={handleModalOpen} modalIsOpen={modalIsOpen} />
         </Col>
     )
 }
