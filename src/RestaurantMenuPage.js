@@ -5,6 +5,7 @@ import { getPriceRange, getMenuUrl } from "./HelperFunctions"
 import MoreInfoModal from "./MoreInfoModal"
 import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "./Styles"
 import RestaurantMenuItemModal from "./RestaurantMenuItemModal";
+
 const RestaurantMenuPage = ({ restaurant }) => {
 
     const navItems = ["Category 1", "Category 2", "Category 3", "Category 4", "Category 5", "Category 6"]

@@ -3,7 +3,6 @@ import ResponsiveCardDeck from "./ResponsiveCardDeck";
 import RestaurantCard from "./RestaurantCard";
 
 const AllRestaurants = ({ restaurants }) => {
-
     return (
         <ResponsiveCardDeck>
             {restaurants.map(restaurant => {

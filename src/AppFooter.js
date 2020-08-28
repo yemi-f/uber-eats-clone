@@ -6,7 +6,7 @@ import { faFacebookSquare, faTwitter, faInstagram } from "@fortawesome/free-bran
 
 const AppFooter = () => {
     return (
-        <div style={{ minHeight: "50vh", backgroundColor: "#000000", color: "#FFFFFF" }}>
+        <div style={{ minHeight: "50vh", backgroundColor: "#000000", color: "#FFFFFF", marginTop: "24px" }}>
             <Container >
                 <Row className="py-5">
                     <Col xs={12} md={6} className="py-4">

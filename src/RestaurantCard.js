@@ -35,7 +35,6 @@ const RestaurantCard = ({ restaurant }) => {
                     </Card.Footer>
                 </Card>
             </Link>
-
         </Col>
     )
 }
