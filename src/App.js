@@ -17,18 +17,18 @@ function App() {
 
   const apiUrl = "https://yemi-f.github.io/uber-eats-mock-api/ubereats.json";
 
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState(ubereats);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    const timer = setTimeout(() => {
-      setRestaurants(ubereats);
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   const timer = setTimeout(() => {
+  //     setRestaurants(ubereats);
+  //     setIsLoading(false);
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   // useEffect(() => {
   //   setIsError(false);
@@ -55,8 +55,7 @@ function App() {
           {restaurants.map(restaurant => {
             return (
               <Route path={`/${getMenuUrl(restaurant.restaurantName)}`}
-                render={props => (<RestaurantMenuPage {...props} restaurant={restaurant} />)}
-              />
+                render={props => (<RestaurantMenuPage {...props} restaurant={restaurant} />)} />
             )
           })}
         </Switch>
