@@ -1,20 +1,11 @@
 import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMenuUrl, getPriceRange } from "./HelperFunctions";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
+import { getMenuUrl, getPriceRange, getHeartIcon } from "./HelperFunctions";
 
 const RestaurantCard = ({ restaurant }) => {
     const bullet = "\u2022";
 
-    const getHeartIcon = (isFavourite) => {
-        if (isFavourite) {
-            return <FontAwesomeIcon icon={fasHeart} style={{ color: "#FFFFFF" }} />
-        }
-        return <FontAwesomeIcon icon={farHeart} style={{ color: "#FFFFFF" }} />
-    }
     const getDeliveryFeeSpan = (freeDelivery, deliveryTime) => {
         var spanEnding = `Delivery Fee ${bullet} ${deliveryTime}-${deliveryTime + 10} Min ${bullet} `
         if (freeDelivery === true) {
