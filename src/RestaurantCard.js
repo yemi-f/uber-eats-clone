@@ -1,11 +1,20 @@
 import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMenuUrl, getPriceRange } from "./HelperFunctions"
+import { getMenuUrl, getPriceRange } from "./HelperFunctions";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons';
 
 const RestaurantCard = ({ restaurant }) => {
     const bullet = "\u2022";
 
+    const getHeartIcon = (isFavourite) => {
+        if (isFavourite) {
+            return <FontAwesomeIcon icon={fasHeart} style={{ color: "#FFFFFF" }} />
+        }
+        return <FontAwesomeIcon icon={farHeart} style={{ color: "#FFFFFF" }} />
+    }
     const getDeliveryFeeSpan = (freeDelivery, deliveryTime) => {
         var spanEnding = `Delivery Fee ${bullet} ${deliveryTime}-${deliveryTime + 10} Min ${bullet} `
         if (freeDelivery === true) {
@@ -23,6 +32,9 @@ const RestaurantCard = ({ restaurant }) => {
             <Link to={`/${getMenuUrl(restaurant.restaurantName)}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <Card className="restaurant-card-horizontal border-0" style={{ cursor: "pointer" }}>
                     <Card.Img variant="top" src={restaurant.restaurantImage} height="175" />
+                    <Card.ImgOverlay className="d-flex justify-content-end" style={{ marginTop: "124px" }}>
+                        {getHeartIcon(restaurant.isCustomerFavourite)}
+                    </Card.ImgOverlay>
                     <Card.Body className="pl-0">
                         <Card.Title>{restaurant.restaurantName}</Card.Title>
                         <Card.Text style={{ fontSize: "14px" }}>
