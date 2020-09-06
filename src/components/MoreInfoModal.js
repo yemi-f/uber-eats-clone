@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal } from "react-bootstrap";
-import ottawaMap from "./images/ottawaMap.png"
+import ottawaMap from "../images/ottawaMap.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faClock } from '@fortawesome/free-solid-svg-icons'
 

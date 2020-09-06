@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMenuUrl, getPriceRange, getHeartIcon } from "./HelperFunctions";
+import { getMenuUrl, getPriceRange, getHeartIcon } from "../utils/HelperFunctions";
 
 const RestaurantCard = ({ restaurant }) => {
     const bullet = "\u2022";

@@ -1,11 +1,11 @@
 import React from "react";
-import HeaderBody from "./HeaderBody"
-import FoodCategories from './FoodCategories';
-import NarrowBy from "./NarrowBy"
-import ZeroDollarDeliveryFee from './ZeroDollarDeliveryFee';
-import AllRestaurants from "./AllRestaurants";
-import YourFavourites from "./YourFavourites";
-import RestaurantSkeletonCardDeck from "./RestaurantSkeletonCardDeck";
+import HeaderBody from "../components/HeaderBody"
+import FoodCategories from '../components/FoodCategories';
+import NarrowBy from "../components/NarrowBy"
+import ZeroDollarDeliveryFee from '../components/ZeroDollarDeliveryFee';
+import AllRestaurants from "../components/AllRestaurants";
+import YourFavourites from "../components/YourFavourites";
+import RestaurantSkeletonCardDeck from "../components/RestaurantSkeletonCardDeck";
 
 const Homepage = ({ restaurants, isLoading }) => {
     return (

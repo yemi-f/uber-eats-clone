@@ -1,6 +1,6 @@
 import React from "react";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
-import { pillBtnStyle } from "./Styles";
+import { pillBtnStyle } from "../Styles";
 
 const PillDropdownBtn = ({ title, children }) => {
 

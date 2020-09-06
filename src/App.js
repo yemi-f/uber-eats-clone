@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import AppNavbar from './AppNavbar'
+import AppNavbar from './components/AppNavbar'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import RestaurantMenuPage from "./RestaurantMenuPage";
-import Homepage from './Homepage';
+import RestaurantMenuPage from "./pages/RestaurantMenuPage";
+import Homepage from './pages/Homepage';
 import axios from "axios";
 import ubereats from "./dataSource/ubereats.json"
-import { getMenuUrl } from "./HelperFunctions"
-import AppFooter from './AppFooter';
+import { getMenuUrl } from "./utils/HelperFunctions"
+import AppFooter from './components/AppFooter';
 
 function App() {
 

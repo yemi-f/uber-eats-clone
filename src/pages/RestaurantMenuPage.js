@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Container, Nav } from "react-bootstrap";
 import ScrollspyNav from "react-scrollspy-nav";
-import { getPriceRange, getMenuUrl, getHeartIcon } from "./HelperFunctions"
-import MoreInfoModal from "./MoreInfoModal"
-import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "./Styles"
-import RestaurantMenuItemModal from "./RestaurantMenuItemModal";
+import { getPriceRange, getMenuUrl, getHeartIcon } from "../utils/HelperFunctions"
+import MoreInfoModal from "../components/MoreInfoModal"
+import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "../Styles"
+import RestaurantMenuItemModal from "../components/RestaurantMenuItemModal";
 
 const RestaurantMenuPage = ({ restaurant }) => {
 

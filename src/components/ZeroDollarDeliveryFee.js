@@ -1,9 +1,9 @@
 import React from "react";
 import { Col, Row, Button } from "react-bootstrap";
-import zeroFee from "./images/zeroFee.svg"
+import zeroFee from "../images/zeroFee.svg"
 import ThreeColCarousel from "./ThreeColCarousel";
 import Countdown, { zeroPad } from 'react-countdown';
-import { pillBtnStyle } from "./Styles"
+import { pillBtnStyle } from "../Styles"
 
 const ZeroDollarDeliveryFee = ({ restaurants }) => {
 
