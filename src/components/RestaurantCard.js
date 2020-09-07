@@ -6,15 +6,15 @@ import { getMenuUrl, getPriceRange, getHeartIcon } from "../utils/HelperFunction
 const RestaurantCard = ({ restaurant }) => {
     const bullet = "\u2022";
 
-    const getDeliveryFeeSpan = (freeDelivery, deliveryTime) => {
+    const getDeliveryFeeSpan = (freeDelivery, deliveryTime, deliveryFee) => {
         var spanEnding = `Delivery Fee ${bullet} ${deliveryTime}-${deliveryTime + 10} Min ${bullet} `
         if (freeDelivery === true) {
             return (
-                <><span className="text-muted" style={{ textDecoration: "line-through" }}>${restaurant.deliveryFee}</span><span> $0 {spanEnding}</span></>
+                <><span className="text-muted" style={{ textDecoration: "line-through" }}>${deliveryFee}</span><span> $0 {spanEnding}</span></>
             )
         }
         return (
-            <span>${restaurant.deliveryFee.toFixed(2)} {spanEnding}</span>
+            <span>${deliveryFee.toFixed(2)} {spanEnding}</span>
         )
     }
 
@@ -46,7 +46,7 @@ const RestaurantCard = ({ restaurant }) => {
                             <Col xs={10}>
                                 <Card.Title style={{ fontSize: "18px" }}>{restaurant.restaurantName}</Card.Title>
                                 <Card.Text style={{ fontSize: "14px" }}>
-                                    <span>{getDeliveryFeeSpan(restaurant.freeDelivery, restaurant.deliveryTime)}</span>
+                                    <span>{getDeliveryFeeSpan(restaurant.freeDelivery, restaurant.deliveryTime, restaurant.deliveryFee)}</span>
                                     <span>{getPriceRange(restaurant.meal)}</span>
                                 </Card.Text>
                             </Col>
