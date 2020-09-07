@@ -84,13 +84,9 @@ const RestaurantMenuCardDeck = ({ restaurant, category }) => {
 
     return (
         <Row className="row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3">
-            {(restaurant.meal).map((item, index) => {
-                if (item.category === category) {
-                    return (
-                        <RestaurantMenuCard key={index} itemName={item.name} price={item.price} image={item.image} />
-                    )
-                }
-            })}
+            {(restaurant.meal).filter(item => item.category === category).map((item, index) =>
+                <RestaurantMenuCard key={index} itemName={item.name} price={item.price} image={item.image} />
+            )}
         </Row>
     )
 }
