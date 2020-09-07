@@ -24,7 +24,9 @@ export const getDeliveryTimeSpan = deliveryTime => {
 }
 
 export const getDeliveryFeeSpan = (freeDelivery, deliveryFee) => {
-    if (freeDelivery === true) {
+    if (!deliveryFee) {
+        return;
+    } else if (freeDelivery === true) {
         return (
             <><span className="text-muted" style={{ textDecoration: "line-through" }}>${deliveryFee}</span><span> $0 Delivery Fee</span></>
         )

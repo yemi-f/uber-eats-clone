@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Container, Nav } from "react-bootstrap";
 import ScrollspyNav from "react-scrollspy-nav";
-import { getPriceRangeSpan, getMenuUrl, getHeartIcon } from "../utils/HelperFunctions"
+import { getPriceRangeSpan, getMenuUrl, getHeartIcon, getDeliveryFeeSpan, getDeliveryTimeSpan } from "../utils/HelperFunctions"
 import MoreInfoModal from "../components/MoreInfoModal"
 import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "../Styles"
 import RestaurantMenuItemModal from "../components/RestaurantMenuItemModal";
@@ -52,26 +52,27 @@ const RestaurantMenuHeader = ({ restaurant }) => {
 }
 
 const RestaurantDetails = ({ restaurant }) => {
-    const bullet = "\u2022";
+    const bullet = " \u2022 ";
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
     const handleModalOpen = () => {
         setModalIsOpen(!modalIsOpen)
     }
 
-    const deliveryTimeStr = `${restaurant.deliveryTime}-${restaurant.deliveryTime + 10}`
-    const priceRange = getPriceRangeSpan(restaurant.price)
+    const priceRange = getPriceRangeSpan(restaurant.meal)
     const specialty = restaurant.restaurantSpecialty.split(",").join(bullet);
 
     return (
         <>
             <Col sm={12} md={7} lg={5} className="my-auto pl-5 py-3" style={{ backgroundColor: "#FFFFFF" }}>
                 <h1>{restaurant.restaurantName}</h1>
-                <Card.Text className="mb-1">${priceRange} {bullet} {specialty}</Card.Text>
+                <Card.Text className="mb-1">{priceRange}{bullet}{specialty}</Card.Text>
                 <Card.Text>
-                    {deliveryTimeStr} Min {bullet} {restaurant.rating}<span className="text-muted">(473)</span> {bullet} ${restaurant.deliveryFee.toFixed(2)} Delivery Fee
-            </Card.Text>
-                <p className="mb-1" >{restaurant.address} {bullet} <strong style={{ color: "#05A357", cursor: "pointer" }} onClick={() => handleModalOpen()}>More info</strong></p>
+                    {getDeliveryTimeSpan(restaurant.deliveryTime)}{bullet}
+                    {restaurant.rating}<span className="text-muted">(473)</span>{bullet}
+                    {getDeliveryFeeSpan(restaurant.freeDelivery, restaurant.deliveryFee)}
+                </Card.Text>
+                <p className="mb-1" >{restaurant.address}{bullet}<strong style={{ color: "#05A357", cursor: "pointer" }} onClick={() => handleModalOpen()}>More info</strong></p>
                 <MoreInfoModal restaurant={restaurant} modalIsOpen={modalIsOpen} handleModalOpen={handleModalOpen} />
             </Col>
             <Col xs={12} className="pl-5">{getHeartIcon(restaurant.isCustomerFavourite, "2x")}</Col>
@@ -112,7 +113,7 @@ const RestaurantMenuCard = ({ itemName, price, image }) => {
                                 {itemName}
                             </h5>
                             <Card.Text>
-                                ${price}
+                                ${price.toFixed(2)}
                             </Card.Text>
                         </Card.Body>
                     </Col>
