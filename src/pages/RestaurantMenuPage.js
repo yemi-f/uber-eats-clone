@@ -32,7 +32,7 @@ const MealCategoryDivs = ({ headingIds, navItems, restaurant }) => {
             {
                 headingIds.map((id, index) => {
                     return (
-                        <div className="mt-3" id={`${id}-div`}>
+                        <div key={id} className="mt-3" id={`${id}-div`}>
                             <h2 className="pt-4 my-0" id={id}>{navItems[index]}</h2>
                             <RestaurantMenuCardDeck restaurant={restaurant} category={navItems[index]} />
                         </div>
@@ -84,12 +84,10 @@ const RestaurantMenuCardDeck = ({ restaurant, category }) => {
 
     return (
         <Row className="row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-3">
-            {(restaurant.meal).map(item => {
+            {(restaurant.meal).map((item, index) => {
                 if (item.category === category) {
                     return (
-                        <>
-                            <RestaurantMenuCard itemName={item.name} price={item.price} image={item.image} />
-                        </>
+                        <RestaurantMenuCard key={index} itemName={item.name} price={item.price} image={item.image} />
                     )
                 }
             })}
@@ -139,7 +137,7 @@ const ScrollspyNavbar = ({ navItems, headingIds }) => {
             >
                 <Nav style={horizontalScrollMenuStyle}>
                     {headingIds.map((id, index) => {
-                        return <Nav.Link className="text-dark" href={`#${id}`} style={horizontalScrollMenuItemStyle}>{navItems[index]}</Nav.Link>
+                        return <Nav.Link key={id} className="text-dark" href={`#${id}`} style={horizontalScrollMenuItemStyle}>{navItems[index]}</Nav.Link>
                     })}
                 </Nav>
             </ScrollspyNav>

@@ -50,7 +50,7 @@ const VerticalLinkGroup = ({ boldedText, arr }) => {
         <>
             <p><strong><a href="#to-link" style={{ color: "#FFFFFF" }}>{boldedText}</a></strong></p>
             {arr.map(item => {
-                return <p><a href="#to-link" style={{ color: "#FFFFFF" }}>{item}</a></p>
+                return <p key={item}><a href="#to-link" style={{ color: "#FFFFFF" }}>{item}</a></p>
             })}
         </>
     )

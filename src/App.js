@@ -55,7 +55,7 @@ function App() {
           <Route exact path="/" render={props => (<Homepage {...props} restaurants={restaurants} isLoading={isLoading} />)} />
           {restaurants.map(restaurant => {
             return (
-              <Route path={`/${getMenuUrl(restaurant.restaurantName)}`}
+              <Route key={restaurant.restaurantId} path={`/${getMenuUrl(restaurant.restaurantName)}`}
                 render={props => (<RestaurantMenuPage {...props} restaurant={restaurant} />)} />
             )
           })}
