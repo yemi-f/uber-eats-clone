@@ -23,7 +23,10 @@
     "react-scripts": "^3.4.3",
     "react-scrollspy-nav": "^1.2.4",
     "react-slick": "^0.27.8",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.16.1",
+    "typescript": "^2.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
