@@ -1,12 +1,13 @@
 import React from "react";
 import { Button, Container, ButtonGroup, Form } from "react-bootstrap";
 import PillDropdownBtn from "./PillDropdownBtn";
+import { Link } from "react-router-dom";
 
-const NarrowBy = () => {
+const NarrowBy = ({ restaurants }) => {
     return (
         <Container >
             <div>
-                <Sort />
+                <Sort restaurants={restaurants} />
                 <PriceRange />
                 <MaxDeliveryFee />
                 <Dietary />
@@ -16,7 +17,7 @@ const NarrowBy = () => {
     )
 }
 
-const Sort = () => {
+const Sort = ({ restaurants }) => {
     return (
         <PillDropdownBtn title="Sort">
             <Form style={{ width: "300px" }}>
@@ -26,8 +27,11 @@ const Sort = () => {
                 <label htmlFor="most-popular">Most popular</label>
                 <input id="most-popular" type="radio" name="sort by" /><br></br>
 
-                <label htmlFor="rating">Rating</label>
-                <input id="rating" type="radio" name="sort by" /><br></br>
+                <Link to="/sort-by-rating" onClick={() => console.log("madagascar")}>
+                    <label htmlFor="rating">Rating</label>
+                    <input id="rating" type="radio" name="sort by" />
+                </Link>
+                <br></br>
 
                 <label htmlFor="delivery-time">Delivery time</label>
                 <input id="delivery-time" type="radio" name="sort by" />

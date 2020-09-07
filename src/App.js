@@ -12,6 +12,7 @@ import axios from "axios";
 import ubereats from "./dataSource/ubereats.json"
 import { getMenuUrl } from "./utils/HelperFunctions"
 import AppFooter from './components/AppFooter';
+import SortByCardDeckPage from './pages/SortByCardCeckPage';
 
 function App() {
 
@@ -58,6 +59,8 @@ function App() {
                 render={props => (<RestaurantMenuPage {...props} restaurant={restaurant} />)} />
             )
           })}
+          <Route path="/sort-by-rating"
+            render={(props) => (<SortByCardDeckPage {...props} restaurants={restaurants} />)} />
         </Switch>
         <AppFooter />
       </div>

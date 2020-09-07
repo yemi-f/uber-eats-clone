@@ -11,14 +11,12 @@ const Homepage = ({ restaurants, isLoading }) => {
     return (
         <>
             {isLoading && <RestaurantSkeletonCardDeck />}
-            <>
-                <HeaderBody />
-                <FoodCategories />
-                <NarrowBy />
-                <ZeroDollarDeliveryFee restaurants={restaurants} />
-                <YourFavourites restaurants={restaurants} />
-                <AllRestaurants restaurants={restaurants} />
-            </>
+            <HeaderBody />
+            <FoodCategories />
+            <NarrowBy restaurants={restaurants} />
+            <ZeroDollarDeliveryFee restaurants={restaurants} />
+            <YourFavourites restaurants={restaurants} />
+            <AllRestaurants restaurants={restaurants} />
         </>
     )
 }
