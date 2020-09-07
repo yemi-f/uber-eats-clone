@@ -89,7 +89,7 @@ const SliderRestaurantsCardDeck = ({ restaurants, numOfvisibleSlides, step, natu
             <Slider>
                 {restaurants.map((restaurant, index) => {
                     return (
-                        <Slide>
+                        <Slide key={restaurant.restaurantId} >
                             <RestaurantCard index={index} restaurant={restaurant} />
                         </Slide>
                     )

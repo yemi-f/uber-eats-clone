@@ -6,7 +6,7 @@ const AllRestaurants = ({ restaurants }) => {
     return (
         <ResponsiveCardDeck>
             {restaurants.map(restaurant => {
-                return <RestaurantCard restaurant={restaurant} />
+                return <RestaurantCard key={restaurant.restaurantId} restaurant={restaurant} />
             })}
         </ResponsiveCardDeck>
     )

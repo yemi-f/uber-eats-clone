@@ -13,11 +13,9 @@ const RestaurantSkeletonCardDeck = () => {
                 <Skeleton width={72} height={36} style={{ marginLeft: "16px", borderRadius: "16px" }} />
             </Container>
             <ResponsiveCardDeck aria-label="loading">
-                {Array(100).fill("").map(() => {
+                {Array(100).fill("").map((item, index) => {
                     return (
-                        <>
-                            <RestaurantSkeletonCard />
-                        </>
+                        <RestaurantSkeletonCard key={index} />
                     )
                 })}
             </ResponsiveCardDeck>
