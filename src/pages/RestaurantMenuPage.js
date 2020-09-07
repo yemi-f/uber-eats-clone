@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Container, Nav } from "react-bootstrap";
 import ScrollspyNav from "react-scrollspy-nav";
-import { getPriceRange, getMenuUrl, getHeartIcon } from "../utils/HelperFunctions"
+import { getPriceRangeSpan, getMenuUrl, getHeartIcon } from "../utils/HelperFunctions"
 import MoreInfoModal from "../components/MoreInfoModal"
 import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "../Styles"
 import RestaurantMenuItemModal from "../components/RestaurantMenuItemModal";
@@ -60,7 +60,7 @@ const RestaurantDetails = ({ restaurant }) => {
     }
 
     const deliveryTimeStr = `${restaurant.deliveryTime}-${restaurant.deliveryTime + 10}`
-    const priceRange = getPriceRange(restaurant.price)
+    const priceRange = getPriceRangeSpan(restaurant.price)
     const specialty = restaurant.restaurantSpecialty.split(",").join(bullet);
 
     return (

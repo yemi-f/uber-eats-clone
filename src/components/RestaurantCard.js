@@ -1,37 +1,12 @@
 import React from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getMenuUrl, getPriceRange, getHeartIcon } from "../utils/HelperFunctions";
+import { getMenuUrl, getPriceRangeSpan, getHeartIcon, getDeliveryFeeSpan, getDeliveryTimeSpan, getRatingSpan } from "../utils/HelperFunctions";
 
 const RestaurantCard = ({ restaurant }) => {
-    const bullet = "\u2022";
+    const bullet = " \u2022 ";
 
-    const getDeliveryFeeSpan = (freeDelivery, deliveryTime, deliveryFee) => {
-        var spanEnding = `Delivery Fee ${bullet} ${deliveryTime}-${deliveryTime + 10} Min ${bullet} `
-        if (freeDelivery === true) {
-            return (
-                <><span className="text-muted" style={{ textDecoration: "line-through" }}>${deliveryFee}</span><span> $0 {spanEnding}</span></>
-            )
-        }
-        return (
-            <span>${deliveryFee.toFixed(2)} {spanEnding}</span>
-        )
-    }
 
-    const getRatingSpan = (rating) => {
-        if (rating > 4.5) {
-            return (
-                <span className="rounded-circle text-center float-right" style={{ fontSize: "14px", backgroundColor: "#E6F2ED", color: "#05A357", width: "40px", height: "40px", padding: "8px" }}>
-                    {restaurant.rating.toFixed(1)}
-                </span>
-            )
-        }
-        return (
-            <span className="rounded-circle text-center float-right" style={{ fontSize: "14px", backgroundColor: "#EEEEEE", color: "#000000", width: "40px", height: "40px", padding: "8px" }}>
-                {restaurant.rating.toFixed(1)}
-            </span>
-        )
-    }
 
     return (
         <Col className="mt-4">
@@ -46,8 +21,9 @@ const RestaurantCard = ({ restaurant }) => {
                             <Col xs={10}>
                                 <Card.Title style={{ fontSize: "18px" }}>{restaurant.restaurantName}</Card.Title>
                                 <Card.Text style={{ fontSize: "14px" }}>
-                                    <span>{getDeliveryFeeSpan(restaurant.freeDelivery, restaurant.deliveryTime, restaurant.deliveryFee)}</span>
-                                    <span>{getPriceRange(restaurant.meal)}</span>
+                                    {getDeliveryFeeSpan(restaurant.freeDelivery, restaurant.deliveryFee)}
+                                    {bullet}{getDeliveryTimeSpan(restaurant.deliveryTime)}
+                                    {bullet}{getPriceRangeSpan(restaurant.meal)}
                                 </Card.Text>
                             </Col>
                             <Col className="my-auto">
