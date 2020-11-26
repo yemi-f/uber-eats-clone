@@ -8,19 +8,25 @@ import {
 } from "react-router-dom";
 import RestaurantMenuPage from "./pages/RestaurantMenuPage";
 import Homepage from './pages/Homepage';
-import axios from "axios";
+// import axios from "axios";
 import ubereats from "./dataSource/ubereats.json"
 import { getMenuUrl } from "./utils/HelperFunctions"
 import AppFooter from './components/AppFooter';
-import SortByCardDeckPage from './pages/SortByCardCeckPage';
+import SortByCardDeckPage from './pages/SortByCardDeckPage';
+import SearchPage from "./pages/SearchPage";
 
 function App() {
 
-  const apiUrl = "https://yemi-f.github.io/uber-eats-mock-api/ubereats.json";
+  // const apiUrl = "https://yemi-f.github.io/uber-eats-mock-api/ubereats.json";
 
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  // const [isError, setIsError] = useState(false);
+  const [searchText, setSearchText] = useState("");
+
+  const updateSearchText = (str) => {
+    setSearchText(str);
+  }
 
   useEffect(() => {
     setIsLoading(true);
@@ -47,12 +53,14 @@ function App() {
   //     })
   // }, [setRestaurants]);
 
+
+
   return (
     <Router>
       <div className="App">
-        <AppNavbar />
+        <AppNavbar searchText={searchText} updateSearchText={updateSearchText} />
         <Switch>
-          <Route exact path="/" render={props => (<Homepage {...props} restaurants={restaurants} isLoading={isLoading} />)} />
+          <Route exact path="/" render={props => (<Homepage {...props} restaurants={restaurants} isLoading={isLoading} updateSearchText={updateSearchText} />)} />
           {restaurants.map(restaurant => {
             return (
               <Route key={restaurant.restaurantId} path={`/${getMenuUrl(restaurant.restaurantName)}`}
@@ -61,6 +69,9 @@ function App() {
           })}
           <Route path="/sort-by-rating"
             render={(props) => (<SortByCardDeckPage {...props} restaurants={restaurants} />)} />
+          <Route path="/search">
+            <SearchPage restaurants={restaurants} searchText={searchText} updateSearchText={updateSearchText} />
+          </Route>
         </Switch>
         <AppFooter />
       </div>

@@ -15,8 +15,9 @@ import bakery from "../images/bakery.png"
 import american from "../images/american.png"
 import { Container } from "react-bootstrap";
 import { horizontalScrollMenuStyle, horizontalScrollMenuItemStyle } from "../Styles"
+import { useHistory } from "react-router-dom";
 
-const FoodCategories = () => {
+const FoodCategories = ({ updateSearchText }) => {
 
     const categories = [
         {
@@ -76,16 +77,29 @@ const FoodCategories = () => {
             image: healthy,
         }
     ]
+    const history = useHistory();
+
+    const onClick = (str) => {
+        updateSearchText(str)
+
+        const to = {
+            pathname: `/search`,
+            search: `?q=${str}`,
+            state: { searchTerm: str }
+        }
+
+        history.push(to)
+    }
 
     return (
         <Container className="horizontal-navbar" style={horizontalScrollMenuStyle}>
             {
                 categories.map((item, index) => {
                     return (
-                        <a href="/" key={index} style={horizontalScrollMenuItemStyle}>
+                        <div onClick={() => onClick(item.title)} key={index} style={horizontalScrollMenuItemStyle}>
                             <img height="60px" src={item.image} alt={item.title} />
                             <div>{item.title}</div>
-                        </a>
+                        </div>
                     )
                 })
             }

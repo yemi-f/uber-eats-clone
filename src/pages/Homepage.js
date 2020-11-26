@@ -7,12 +7,12 @@ import AllRestaurants from "../components/AllRestaurants";
 import YourFavourites from "../components/YourFavourites";
 import RestaurantSkeletonCardDeck from "../components/RestaurantSkeletonCardDeck";
 
-const Homepage = ({ restaurants, isLoading }) => {
+const Homepage = ({ restaurants, isLoading, updateSearchText }) => {
     return (
         <>
             {isLoading && <RestaurantSkeletonCardDeck />}
             <HeaderBody />
-            <FoodCategories />
+            <FoodCategories updateSearchText={updateSearchText} />
             <NarrowBy restaurants={restaurants} />
             <ZeroDollarDeliveryFee restaurants={restaurants} />
             <YourFavourites restaurants={restaurants} />

@@ -19,4 +19,5 @@ export const horizontalScrollMenuItemStyle = {
     padding: "16px",
     textDecoration: "none",
     flex: "0 0 auto",
+    cursor: "pointer"
 }

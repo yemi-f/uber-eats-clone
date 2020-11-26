@@ -11,8 +11,8 @@ const SortByCardDeckPage = ({ restaurants }) => {
                 <h1>{restaurantsByRating.length} stores</h1>
             </Container>
             <ResponsiveCardDeck>
-                {restaurantsByRating.map(restaurant => {
-                    return <RestaurantCard restaurant={restaurant} />
+                {restaurantsByRating.map((restaurant, idx) => {
+                    return <RestaurantCard key={idx} restaurant={restaurant} />
                 })}
             </ResponsiveCardDeck>
         </>
